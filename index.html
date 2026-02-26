@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getEFX | Visual Production Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="neon-canvas">
+        <div class="orb blue"></div>
+        <div class="orb green"></div>
+        <div class="orb magenta"></div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="brand-group">
+                <img src="assets/getEFX_light.svg" alt="getEFX" class="main-logo">
+                <div class="motto-wrapper">
+                    <span id="typewriter"></span><span class="cursor">|</span>
+                </div>
+            </div>
+            <a href="#contact-form" class="cta-btn">let's work together</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-label">Expertise</h2>
+        <div class="services-container">
+            <div class="card">
+                <h3>Video Production</h3>
+                <p>High-end cinematography using industry-standard 8K workflows for a polished, professional look.</p>
+            </div>
+            <div class="card">
+                <h3>Video Editing</h3>
+                <p>Rhythmic, narrative-driven editing that keeps audiences engaged from start to finish.</p>
+            </div>
+            <div class="card">
+                <h3>AI Video</h3>
+                <p>Leveraging cutting-edge neural networks for generative effects and high-fidelity upscaling.</p>
+            </div>
+            <div class="card">
+                <h3>CGI & Motion</h3>
+                <p>Photorealistic 3D environments and physics-based simulations for impossible visuals.</p>
+            </div>
+            <div class="card">
+                <h3>Ad Campaigns</h3>
+                <p>Strategic visual content designed specifically for high-conversion social and TV ads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients">
+        <p class="small-title">Key Partners</p>
+        <div class="client-grid">
+            <img src="assets/MlmLogo.svg" alt="Client 1">
+            <img src="assets/MlmLogo.svg" alt="Client 2">
+            <img src="assets/MlmLogo.svg" alt="Client 3">
+        </div>
+    </section>
+
+    <section id="contact-form" class="contact">
+        <div class="form-card">
+            <h2>Start a Project</h2>
+            <form name="contact" method="POST" data-netlify="true">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Your Vision" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://instagram.com/get.efx" class="social-footer">
+            <i class="ph ph-instagram-logo"></i>
+            <span>follow us</span>
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
