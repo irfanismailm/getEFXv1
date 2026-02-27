@@ -3,89 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>getEFX | Visual Production Studio</title>
+    <title>getEFX | Elite Video Production</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&family=Dosis:wght@500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-    <div class="neon-canvas">
+    <div class="neon-canvas" id="parallax-bg">
         <div class="orb blue"></div>
         <div class="orb green"></div>
         <div class="orb magenta"></div>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="brand-group">
-                <img src="assets/getEFX_light.svg" alt="getEFX" class="main-logo">
-                <div class="motto-wrapper">
-                    <span id="typewriter"></span><span class="cursor">|</span>
+    <section class="hero-section">
+        <div class="brand-wrapper">
+            <div class="brand-grid">
+                <div class="logo-column">
+                    <img src="assets/get-only-colour.svg" alt="get" class="brand-static-logo">
+                </div>
+                
+                <div class="text-column">
+                    <div class="typewriter-container">
+                        <span id="typewriter" class="typewriter-extension"></span><span class="cursor">|</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <p class="about-text">
+                We are a high-end visual production studio dedicated to the art of motion. 
+                From cinematic direction to cutting-edge AI integration, we craft stories 
+                that command attention and define industry standards.
+            </p>
             <a href="#contact-form" class="cta-btn">let's work together</a>
         </div>
     </section>
 
     <section class="services">
-        <h2 class="section-label">Expertise</h2>
+        <h2 class="section-title">Video Production at its Best</h2>
         <div class="services-container">
             <div class="card">
-                <h3>Video Production</h3>
-                <p>High-end cinematography using industry-standard 8K workflows for a polished, professional look.</p>
+                <h3>Direction & Camera</h3>
+                <p>Professional cinematography with industry-leading 8K equipment and creative vision.</p>
             </div>
             <div class="card">
                 <h3>Video Editing</h3>
-                <p>Rhythmic, narrative-driven editing that keeps audiences engaged from start to finish.</p>
+                <p>Precision post-production focusing on rhythm, narrative flow, and high-impact pacing.</p>
+            </div>
+            <div class="card">
+                <h3>CGI & 3D</h3>
+                <p>Creating impossible worlds through photorealistic physics-based simulations.</p>
             </div>
             <div class="card">
                 <h3>AI Video</h3>
-                <p>Leveraging cutting-edge neural networks for generative effects and high-fidelity upscaling.</p>
+                <p>Harnessing neural networks for generative effects and next-gen visual styling.</p>
             </div>
             <div class="card">
-                <h3>CGI & Motion</h3>
-                <p>Photorealistic 3D environments and physics-based simulations for impossible visuals.</p>
-            </div>
-            <div class="card">
-                <h3>Ad Campaigns</h3>
-                <p>Strategic visual content designed specifically for high-conversion social and TV ads.</p>
+                <h3>Color Grading</h3>
+                <p>Giving every frame a cinematic soul with professional high-dynamic-range color science.</p>
             </div>
         </div>
     </section>
 
     <section class="clients">
-        <p class="small-title">Key Partners</p>
+        <h2 class="section-title">Key Partners & Clients</h2>
         <div class="client-grid">
-            <img src="assets/MlmLogo.svg" alt="Client 1">
-            <img src="assets/MlmLogo.svg" alt="Client 2">
-            <img src="assets/MlmLogo.svg" alt="Client 3">
+            <div class="client-card"><img src="assets/MlmLogo.svg" alt="Client 1"></div>
+            <div class="client-card"><img src="assets/metastudio.svg" alt="Client 2"></div>
+            <div class="client-card"><img src="assets/clickus.svg" alt="Client 3"></div>
         </div>
     </section>
 
     <section id="contact-form" class="contact">
         <div class="form-card">
-            <h2>Start a Project</h2>
+            <h2 class="section-title">Start a Project</h2>
             <form name="contact" method="POST" data-netlify="true">
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="input-group">
-                    <textarea name="message" placeholder="Your Vision" rows="5" required></textarea>
-                </div>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <a href="https://instagram.com/get.efx" class="social-footer">
-            <i class="ph ph-instagram-logo"></i>
-            <span>follow us</span>
-        </a>
+        <div class="social-links">
+            <a href="https://instagram.com/get.efx" target="_blank" class="social-footer">
+                <i class="ph ph-instagram-logo"></i>
+            </a>
+            <a href="https://wa.me/0971561640071" target="_blank" class="social-footer">
+                <i class="ph ph-whatsapp-logo"></i>
+            </a>
+        </div>
+        <p class="footer-tag">follow our journey</p>
     </footer>
 
     <script src="script.js"></script>

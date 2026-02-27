@@ -1,24 +1,24 @@
 const textElement = document.getElementById('typewriter');
-const phrases = [
-    "get it done.",
-    "get the best.",
-    "get effects.",
-    "get ai videos.",
-    "get cgi videos.",
-    "get next-gen ads.",
-    "get cinematic soul."
-];
+const bg = document.getElementById('parallax-bg');
 
+const phrases = [
+    "EFX",
+    "Effects Delivered",
+    "Bold Storytelling",
+    "AI-Powered Content",
+    "CGI Excellence",
+    "Cinematic Power"
+]
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function type() {
     const currentPhrase = phrases[phraseIndex];
-    let typeSpeed = isDeleting ? 50 : 150;
+    let typeSpeed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 2500; // Delay before starting to delete
+        typeSpeed = 2200; 
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -26,11 +26,27 @@ function type() {
         typeSpeed = 500;
     }
 
-    const displayText = currentPhrase.substring(0, charIndex + (isDeleting ? -1 : 1));
-    textElement.textContent = displayText;
-    charIndex += isDeleting ? -1 : 1;
+    const displayText = currentPhrase.substring(0, charIndex);
+    
+    // Injects <br> at the first space
+    if (displayText.includes(" ")) {
+        textElement.innerHTML = displayText.replace(" ", "<br>");
+    } else {
+        textElement.textContent = displayText;
+    }
 
+    charIndex += isDeleting ? -1 : 1;
     setTimeout(type, typeSpeed);
 }
 
-document.addEventListener('DOMContentLoaded', type);
+// Fixed Parallax logic
+window.addEventListener('scroll', () => {
+    if (bg) {
+        let offset = window.pageYOffset;
+        bg.style.transform = `translate3d(0, ${offset * 0.2}px, 0)`;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 800);
+});
