@@ -8,7 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&family=Dosis:wght@500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
+<body class="dark-theme">
+
+    <div class="theme-toggle" id="theme-switch">
+        <i class="ph ph-moon" id="theme-icon"></i>
+    </div>
 
     <div class="neon-canvas" id="parallax-bg">
         <div class="orb blue"></div>
@@ -17,17 +21,13 @@
     </div>
 
     <section class="hero-section">
-        <div class="brand-wrapper">
-            <div class="brand-grid">
-                <div class="logo-column">
-                    <img src="assets/get-only-colour.svg" alt="get" class="brand-static-logo">
-                </div>
-                
-                <div class="text-column">
-                    <div class="typewriter-container">
-                        <span id="typewriter" class="typewriter-extension"></span><span class="cursor">|</span>
-                    </div>
-                </div>
+        <div class="brand-anchor">
+            <div class="logo-column">
+                <img src="assets/get-only-colour.svg" alt="get" class="brand-static-logo">
+            </div>
+            
+            <div class="text-column">
+                <div id="typewriter" class="typewriter-container typewriter-extension"></div>
             </div>
         </div>
     </section>

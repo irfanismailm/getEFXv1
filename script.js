@@ -1,20 +1,36 @@
 const textElement = document.getElementById('typewriter');
 const bg = document.getElementById('parallax-bg');
+const themeSwitch = document.getElementById('theme-switch');
+const themeIcon = document.getElementById('theme-icon');
+
+const colors = ['clr-green', 'clr-blue', 'clr-magenta', 'clr-yellow', 'clr-white'];
 
 const phrases = [
     "EFX",
-    "Effects Delivered",
-    "Bold Storytelling",
-    "AI-Powered Content",
-    "CGI Excellence",
-    "Cinematic Power"
-]
+    "Effects Delivered Now",
+    "Bold Digital Storytelling",
+    "AI Powered Video Content",
+    "CGI Visual Excellence",
+    "Cinematic Power Unleashed"
+];
+
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
+let currentColors = [];
+
+function getRandomColors(wordCount) {
+    return Array.from({ length: wordCount }, () => colors[Math.floor(Math.random() * colors.length)]);
+}
 
 function type() {
     const currentPhrase = phrases[phraseIndex];
+    const words = currentPhrase.split(" ");
+    
+    if (charIndex === 0 && !isDeleting) {
+        currentColors = getRandomColors(words.length);
+    }
+
     let typeSpeed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIndex === currentPhrase.length) {
@@ -26,20 +42,25 @@ function type() {
         typeSpeed = 500;
     }
 
-    const displayText = currentPhrase.substring(0, charIndex);
+    const fullTextSoFar = currentPhrase.substring(0, charIndex);
+    const wordsSoFar = fullTextSoFar.split(" ");
     
-    // Injects <br> at the first space
-    if (displayText.includes(" ")) {
-        textElement.innerHTML = displayText.replace(" ", "<br>");
-    } else {
-        textElement.textContent = displayText;
-    }
+    let htmlOutput = "";
+    wordsSoFar.forEach((word, index) => {
+        if (word.length > 0 || index === 0) {
+            const colorClass = currentColors[index] || 'clr-white';
+            htmlOutput += `<span class="${colorClass}">${word}</span>${index < wordsSoFar.length - 1 ? '<br>' : ''}`;
+        }
+    });
+
+    const cursorHTML = '<span class="cursor">|</span>';
+    textElement.innerHTML = htmlOutput + cursorHTML;
 
     charIndex += isDeleting ? -1 : 1;
     setTimeout(type, typeSpeed);
 }
 
-// Fixed Parallax logic
+// Parallax Logic
 window.addEventListener('scroll', () => {
     if (bg) {
         let offset = window.pageYOffset;
@@ -47,6 +68,25 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Theme Switch Logic
+themeSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    
+    if (document.body.classList.contains('light-theme')) {
+        themeIcon.className = 'ph ph-sun';
+        localStorage.setItem('efx-theme', 'light');
+    } else {
+        themeIcon.className = 'ph ph-moon';
+        localStorage.setItem('efx-theme', 'dark');
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('efx-theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeIcon.className = 'ph ph-sun';
+    }
+    
     setTimeout(type, 800);
 });
